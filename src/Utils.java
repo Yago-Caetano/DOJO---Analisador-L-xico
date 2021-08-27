@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import models.TokenModel;
+
 
 
 public class Utils {
@@ -40,135 +42,25 @@ public class Utils {
         return "";
     }
 
-
-
-    public static ArrayList<Integer> textoSemComentarios(InputStream dadosBrutos)
+    public static ArrayList<TokenModel> recuperarTokens(String dados)
     {
-        /*comentario simples
-            comeca com // e termina com \r\n
-        */
-        boolean EncontrouInicio = false;
-        boolean EncontrouFim = false;
+        String[] SplitDados = dados.split(" ");
+        ArrayList<TokenModel> retorno = new ArrayList<TokenModel>();
 
-        boolean EncontrouBarra = false;
-        boolean ComentarioComposto = false;
-        boolean Ignorar = false;
+        for(int counter = 0; counter < SplitDados.length; counter++)
+        {
 
-        StringBuffer buffer = new StringBuffer();
-       
-        ArrayList<Integer> ReturnList = new ArrayList<Integer>();
+            retorno.add();
+        }
 
-        try{
-        
-            int data = dadosBrutos.read();
-        
-            while (data != -1) {
-
-
-                    if(Ignorar)
-                    {
-                        if(ComentarioComposto)
-                        {
-                            
-                            if(EncontrouFim && data != '/')
-                                EncontrouFim = false;
-
-                            if(data == '/' && EncontrouFim)
-                            {
-                                Ignorar = false;
-                                EncontrouFim = false;
-                                ComentarioComposto = false;
-                                EncontrouBarra = false;
-
-                            }
-
-                            if(data == '*' && !EncontrouFim)
-                            {
-                                EncontrouFim = true;
-                            }
-
-                        }
-                        else
-                        {
-                            //terminou comentario de uma linha
-                            if(data == '\n')
-                            {
-                                Ignorar = false;
-                                EncontrouBarra = false;
-
-                            }
-                        }
-
-                    }
-                    else
-                    {
-
-                        if(EncontrouBarra && data != '/')
-                        {
-                            if(data == '*')
-                            {
-                                ComentarioComposto = true;
-                                Ignorar = true;
-                            }
-                            else
-                            {
-                                EncontrouBarra = false;
-                                ReturnList.add((int)'/');
-                                buffer.append('/');
-                            }
-
-                        }
-
-                        if(!EncontrouBarra && data != '/')
-                        {
-                            ReturnList.add(data);
-                            buffer.append((char) data);
-                        }
-                        else
-                        {
-                            if(data == '/' && EncontrouBarra)
-                            {
-                                Ignorar = true;
-                                EncontrouBarra = false;
-
-                            }
-                            
-                            if(data == '/' && !EncontrouBarra)
-                            {
-                                EncontrouBarra = true;
-                            }
-                        }
-                    }
-
-
-                    data = dadosBrutos.read();
-
-                    // exceção divisão
-        
-                }
-                
-                dadosBrutos.close();
-
-        } catch (FileNotFoundException e1) {
-            // TODO Auto-generated catch block
-            System.out.println("Arquivo de texto não encontrado");
-            e1.printStackTrace();
-
-    } catch (IOException e) {
-            // TODO Auto-generated catch block
-            System.out.printf("Erro de leitura");
-            e.printStackTrace();
     }
 
-        /* comentarios multilinhas 
-            comeca com /* e termina com 
-        */
-       /* for(int a : ReturnList)
-        {
-            System.out.print((char) a);
-        }*/
-        write(buffer.toString());
-        return ReturnList;
+    private TokenModel classificaToken(String Valor)
+    {
+        TokenModel RetToken;
+
+        //verifica 
+        return RetToken;
     }
     
 }
