@@ -5,7 +5,6 @@ import java.io.InputStream;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
         readTxt();
     }
 
@@ -17,18 +16,14 @@ public class App {
              try {
                     inputstream = new FileInputStream(System.getProperty("user.dir") + "/input.txt");
 
-                    int data = inputstream.read();
-                    while (data != -1) {
-                        System.out.println(data);
-                        data = inputstream.read();
-                    }
-                    inputstream.close();
+                    Utils.textoSemComentario(inputstream);
+
              } catch (FileNotFoundException e1) {
                     // TODO Auto-generated catch block
                     System.out.println("Arquivo de texto não encontrado");
                     e1.printStackTrace();
 
-             } catch (IOException e) {
+             } catch (Exception e) {
                     // TODO Auto-generated catch block
                     System.out.println("Erro de leitura");
                     e.printStackTrace();
