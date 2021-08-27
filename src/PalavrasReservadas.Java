@@ -66,17 +66,7 @@ String ManipuladoresJanelas = [
 "untaint",	"window"
 ];
 
-//eventos
-onblur	
-onclick	
-onerror	
-onfocus
-onkeydown	
-onkeypress	
-onkeyup	
-onmouseover
-onload	
-onmouseup	
-onmousedown	
-onsubmit
+String ManipuladoresEventos = ["onblur","onclick",	
+"onerror",	"onfocus","onkeydown",	"onkeypress",	"onkeyup",	"onmouseover","onload",	"onmouseup",	"onmousedown",	"onsubmit"];
+
 
