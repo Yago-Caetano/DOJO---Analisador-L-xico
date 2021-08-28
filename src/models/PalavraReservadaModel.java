@@ -30,5 +30,6 @@ public class PalavraReservadaModel implements Comparable <PalavraReservadaModel>
         // TODO Auto-generated method stub
         return new ComparadorPalavraReservadas().compare(this, o);
     }
+
     
 }
