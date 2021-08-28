@@ -13,6 +13,13 @@ public class TokenModel {
         this.Valor = Valor;
     }
     
-    
+    public String getValor()
+    {
+        return this.Valor;
+    }
 
+    public String getTipo()
+    {
+        return this.Tipo;
+    }
 }

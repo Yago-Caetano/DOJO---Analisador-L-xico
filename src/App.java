@@ -16,7 +16,7 @@ public class App {
              try {
                     inputstream = new FileInputStream(System.getProperty("user.dir") + "/input.txt");
 
-                    Utils.textoSemComentario(inputstream);
+                    Utils.recuperarTokens(Utils.textoSemComentario(inputstream));
 
              } catch (FileNotFoundException e1) {
                     // TODO Auto-generated catch block
